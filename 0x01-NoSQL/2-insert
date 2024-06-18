@@ -1,2 +1,2 @@
 // insert one object to 'school' collection in my_db
-db.school.insertOne({name: "Holberton school"});
+db.school.insert({name: "Holberton school"});
