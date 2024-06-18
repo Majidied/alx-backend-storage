@@ -1,0 +1,2 @@
+// cmd to create or use database named 'my_db'
+use my_db;
