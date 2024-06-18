@@ -1,0 +1,2 @@
+// number of documenents
+db.school.find().count();
