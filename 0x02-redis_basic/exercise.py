@@ -19,7 +19,7 @@ class Cache:
         self._redis = Redis()
         self._redis.flushdb()
 
-    def store(self, data: Union[str, bytes,  int,  float]) -> str:
+    def store(self, data: Union[str, bytes, int, float]) -> str:
         """
         Stores data in redis with randomly generated key
         """
@@ -27,7 +27,6 @@ class Cache:
         client = self._redis
         client.set(key, data)
         return key
-
 
     def get(self, key, fn=None):
         """
