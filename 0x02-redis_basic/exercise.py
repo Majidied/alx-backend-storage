@@ -12,6 +12,7 @@ def count_calls(method):
     """
     Count calls decorator
     """
+
     @wraps(method)
     def wrapper(self, *args, **kwargs):
         """
@@ -19,7 +20,9 @@ def count_calls(method):
         """
         self._redis.incr(method.__qualname__)
         return method(self, *args, **kwargs)
+
     return wrapper
+
 
 class Cache:
     """
