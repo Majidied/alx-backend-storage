@@ -2,6 +2,7 @@
 """
 Exercise
 """
+from typing import Union
 from redis.client import Redis
 from uuid import uuid4
 
@@ -18,12 +19,20 @@ class Cache:
         self._redis = Redis()
         self._redis.flushdb()
 
-    def store(self, value):
+    def store(self, data: Union[str, bytes,  int,  float]) -> str:
+        """
+        Stores data in redis with randomly generated key
+        """
         key = str(uuid4())
-        self._redis.set(key, value)
+        client = self._redis
+        client.set(key, data)
         return key
 
+
     def get(self, key, fn=None):
+        """
+        Get data from redis
+        """
         value = self._redis.get(key)
         if fn:
             return fn(value)
