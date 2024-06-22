@@ -9,11 +9,13 @@ from typing import Callable
 
 
 def track_get_page(fn: Callable) -> Callable:
-    """ Decorator for get_page
+    """
+    Decorator for get_page
     """
     @wraps(fn)
     def wrapper(url: str) -> str:
-        """ Wrapper that:
+        """
+        Wrapper that:
             - check whether a url's data is cached
             - tracks how many times get_page is called
         """
