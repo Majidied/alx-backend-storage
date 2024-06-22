@@ -1,12 +1,4 @@
 #!/usr/bin/env python3
-""" Redis client module
-"""
-from typing import List
-import redis
-import requests
-
-
-#!/usr/bin/env python3
 """
 Caching request module
 """
@@ -17,7 +9,9 @@ from typing import Callable
 
 
 def track_get_page(fn: Callable) -> Callable:
-    """Decorator for get_page"""
+    """
+    Decorator for get_page
+    """
 
     @wraps(fn)
     def wrapper(url: str) -> str:
